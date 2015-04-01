@@ -11,7 +11,7 @@ Finished : -
 
 --------------------------------------------------------------------------------
 
-	v0.01 - 01/04/2015
+	v0.0 - 01/04/2015
 	
 		- Project preparation:
 			- Created Git repository with .gitignore inclusions.
@@ -21,3 +21,10 @@ Finished : -
 			  and other package related things.
 			- Created Driver class in controller, currently printing program
 			  information.
+	
+	v0.1 - 01/04/2015
+	
+		- View
+			- Added Input and Output classes that are used to communicate with
+			  the user. Any user input or output is delegated to this class,
+			  rather than using System.out and such.
