@@ -1,0 +1,19 @@
+================================================================================
+
+METRO-GRAPH VERSION HISTORY
+
+================================================================================
+
+Version 0.0: Design Stage:
+
+Commenced: 01/04/2015
+Finished : -
+
+--------------------------------------------------------------------------------
+
+	v0.01 - 01/04/2015
+	
+		- Project preparation:
+			- Created Git repository with .gitignore inclusions.
+			- Created README.md with project information. 
+			- Created VERSIONHISTORY.txt
