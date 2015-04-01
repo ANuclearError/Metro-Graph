@@ -17,3 +17,7 @@ Finished : -
 			- Created Git repository with .gitignore inclusions.
 			- Created README.md with project information. 
 			- Created VERSIONHISTORY.txt
+			- Created MVC packages with package-info classes containing Javadoc
+			  and other package related things.
+			- Created Driver class in controller, currently printing program
+			  information.
