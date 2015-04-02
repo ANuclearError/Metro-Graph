@@ -28,3 +28,16 @@ Finished : -
 			- Added Input and Output classes that are used to communicate with
 			  the user. Any user input or output is delegated to this class,
 			  rather than using System.out and such.
+	
+	v0.2 - 02/04/2014
+	
+		- Model
+			- Parser package has been created, containing classes handling
+			  file parsing.
+			- The MetroMapParser class was imported, 
+			- The BadFileException class was also created to handle errors
+			  within the parser's syntax.
+		- View
+			- The output class now has extra methods to allow for lineBreaks of
+			  various sizes rather than always being 80 chars.
+		

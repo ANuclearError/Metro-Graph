@@ -64,6 +64,17 @@ public class Output {
 		}
 		System.out.println();		
 	}
+	
+	/**
+	 * Prints a string of a single continuous line break in order to split up
+	 * the output to look more clean.
+	 */
+	public static void lineBreak(int num) {
+		for (int i = 0; i < num; i++){
+			System.out.print(LINE_BREAK);
+		}
+		System.out.println();		
+	}
 
 	/**
 	 * Prints a string of a single continuous line break in order to split up
@@ -72,6 +83,18 @@ public class Output {
 	 */
 	public static void minorLineBreak() {
 		for (int i = 0; i < LINE_BREAK_INT; i++){
+			System.out.print(SMALL_LINE_BREAK);
+		}
+		System.out.println();		
+	}
+	
+	/**
+	 * Prints a string of a single continuous line break in order to split up
+	 * the output to look more clean. The minor line break displays a character
+	 * that is not as impactful as a regular line break.
+	 */
+	public static void minorLineBreak(int num) {
+		for (int i = 0; i < num; i++){
 			System.out.print(SMALL_LINE_BREAK);
 		}
 		System.out.println();		
