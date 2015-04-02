@@ -4,7 +4,7 @@ METRO-GRAPH VERSION HISTORY
 
 ================================================================================
 
-Version 0.0: Design Stage:
+Version 0.0: Design Stage & Preparation:
 
 Commenced: 01/04/2015
 Finished : -
