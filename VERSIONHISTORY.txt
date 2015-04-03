@@ -41,3 +41,7 @@ Finished : -
 			- The output class now has extra methods to allow for lineBreaks of
 			  various sizes rather than always being 80 chars.
 		
+	v0.3 - 03/04/2014
+	
+		- Model
+			- Created basic interfaces for nodes, edges and multigraphs.
