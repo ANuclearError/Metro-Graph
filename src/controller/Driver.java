@@ -1,5 +1,6 @@
 package controller;
 
+
 /**
  * The Driver class contains the main method for the project, initialising the
  * required classes and starting the application. It also displays the initial
@@ -24,5 +25,4 @@ public class Driver {
 		System.out.println(PROJECT_MESSAGE);
 		System.out.println(AUTHOR);
 	}
-
 }

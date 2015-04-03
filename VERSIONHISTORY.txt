@@ -45,3 +45,14 @@ Finished : -
 	
 		- Model
 			- Created basic interfaces for nodes, edges and multigraphs.
+			
+	v0.4 - 03/04/2014
+	
+		- Model
+			- Created implementations of the interfaces introduced in v0.3.
+				- Station, implement nodes
+				- Line, implements edges
+				- Metro, implements multigraphs
+		- View
+			- Changed line(String line) method to print(Object line) so that any
+			  object can be printed to console, not just strings.

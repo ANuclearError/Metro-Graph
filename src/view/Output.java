@@ -40,10 +40,10 @@ public class Output {
 	}
 	
 	/**
-	 * Prints a line to the user output.
-	 * @param line - the line to be displayed.
+	 * Prints an object to the user output.
+	 * @param line - the object to be displayed.
 	 */
-	public static final void line(String line){
+	public static final void print(Object line){
 		System.out.println(line);
 	}
 	

@@ -31,6 +31,18 @@ public interface IMultiGraph {
 	public boolean addEdge(IEdge edge);
 	
 	/**
+	 * Returns a list of all nodes in the graph.
+	 * @return number of nodes in graph
+	 */
+	public List<INode> getNodes();
+	
+	/**
+	 * Returns a list of all edges in the graph.
+	 * @return list of edges in graph
+	 */
+	public List<IEdge> getEdges();
+	
+	/**
 	 * Returns a list of edges that represent a path between the source node and
 	 * destination node. If no such path exists, then null is returned
 	 * @param source - the start of the path
