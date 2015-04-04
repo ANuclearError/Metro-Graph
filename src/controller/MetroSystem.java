@@ -7,8 +7,6 @@ import model.Metro;
 import model.parser.BadFileException;
 import model.parser.MetroMapParser;
 
-import view.Output;
-
 /**
  * The MetroSystem controls the overall application. It retrieves information
  * from the model and communicates with the user via the view.
@@ -19,13 +17,26 @@ import view.Output;
  */
 public class MetroSystem {
 	
+	/**
+	 * The metro map that will be searched for routes.
+	 */
 	private IMultiGraph metro;
 	
+	/**
+	 * Constructor
+	 * 
+	 * @param filename - the file to read the graph from
+	 */
 	public MetroSystem(String filename){
 		metro = new Metro();
 		start(filename);
 	}
 	
+	/**
+	 * Starts the system, loading the file into the graph.
+	 * 
+	 * @param filename - the file to read the gram from
+	 */
 	private void start(String filename){
 		try {
 			metro = MetroMapParser.generateGraphFromFile(filename);
@@ -36,8 +47,5 @@ public class MetroSystem {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		Output.print(metro.getNodes().size());
-		Output.print(metro.getEdges().size());
 	}
 }
