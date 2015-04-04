@@ -18,14 +18,14 @@ public interface IEdge {
 	public String getLabel();
 	
 	/**
-	 * Returns the node that this comes from.
+	 * Returns the ID of the node that this comes from.
 	 * @return formNode
 	 */
-	public INode getFromNode();
+	public int getFromNode();
 	
 	/**
-	 * Returns the node that this goes to.
+	 * Returns the ID of the node that this goes to.
 	 * @return toNode
 	 */
-	public INode getToNode();
+	public int getToNode();
 }

@@ -56,3 +56,13 @@ Finished : -
 		- View
 			- Changed line(String line) method to print(Object line) so that any
 			  object can be printed to console, not just strings.
+	
+	v0.5 - 04/04/2014
+	
+		- Controller
+			- Created the MetroSystem class which creates the graph based on the
+			  parser.
+		- Model
+			- Changed how edges work so that they only deal with the IDs rather
+			  than the actual nodes themselves.
+			- Changed the parser to deal with this change.

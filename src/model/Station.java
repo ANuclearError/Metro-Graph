@@ -39,5 +39,4 @@ public class Station implements INode{
 	public int getID() {
 		return id;
 	}
-
 }

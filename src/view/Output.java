@@ -50,7 +50,7 @@ public class Output {
 	/**
 	 * Prints out a prompt for when the user is to enter text.
 	 */
-	public static final void prompt(){
+	public static void prompt(){
 		System.out.print(PROMPT);
 	}
 	
