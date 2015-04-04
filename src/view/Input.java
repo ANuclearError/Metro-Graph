@@ -37,6 +37,7 @@ public class Input {
 	 * @return the string scanned from the input
 	 */
 	public static final String getString() {
+		SCANNER.nextLine();
 		Output.prompt();
 		String input = SCANNER.nextLine();
 		return input;

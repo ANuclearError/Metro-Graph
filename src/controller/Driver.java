@@ -1,5 +1,7 @@
 package controller;
 
+import view.Output;
+
 /**
  * The Driver class contains the main method for the project, initialising the
  * required classes and starting the application. It also displays the initial
@@ -18,11 +20,15 @@ public class Driver {
 	
 	public static void main(String[] args) {
 		welcome();
-		MetroSystem system = new MetroSystem("bostonmetro.txt");
+		MetroSystem system = new MetroSystem();
+		system.start("bostonmetro.txt");
 	}
 
 	private static void welcome() {
-		System.out.println(PROJECT_MESSAGE);
-		System.out.println(AUTHOR);
+		Output.print(PROJECT_MESSAGE);
+		Output.print(AUTHOR);
+		Output.line();
+		Output.lineBreak();
+		Output.line();
 	}
 }

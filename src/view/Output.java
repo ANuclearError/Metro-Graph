@@ -1,5 +1,7 @@
 package view;
 
+import java.util.List;
+
 /**
  * The Output class is responsible for passing information from the model to the
  * user. Any information that is to be presented to the user is to be passed
@@ -119,5 +121,11 @@ public class Output {
 	public static void boolException(String cause){
 		System.out.println("Invalid input, please enter 'yes' or 'no\n\t "
 				+ "Your input: '" + cause + "'");
+	}
+
+	public static <T> void printList(List<T> list) {
+		for(T item : list){
+			Output.print("\t" + item);
+		}
 	}
 }

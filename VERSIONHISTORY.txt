@@ -66,3 +66,10 @@ Finished : -
 			- Changed how edges work so that they only deal with the IDs rather
 			  than the actual nodes themselves.
 			- Changed the parser to deal with this change.
+			
+	v0.6 - 04/04/2014
+		- Controller
+			- Implemented the 'Find Station' feature, which allows for the user
+			  to find a station with a label containing the user's input.
+		- Model
+			- Implemented a toString() of stations, to allow for nice display.

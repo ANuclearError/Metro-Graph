@@ -39,4 +39,9 @@ public class Station implements INode{
 	public int getID() {
 		return id;
 	}
+	
+	@Override
+	public String toString(){
+		return id + "\t" + label;
+	}
 }
