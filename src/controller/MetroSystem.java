@@ -21,25 +21,26 @@ import view.Output;
  *
  */
 public class MetroSystem {
-	
+
 	/**
 	 * The metro map that will be searched for routes.
 	 */
 	private IMultiGraph metro;
-	
+
 	/**
 	 * Constructor
 	 */
-	public MetroSystem(){
+	public MetroSystem() {
 		metro = new Metro();
 	}
-	
+
 	/**
 	 * Starts the system, loading the file into the graph.
 	 * 
-	 * @param filename - the file to read the gram from
+	 * @param filename
+	 *            - the file to read the graph from
 	 */
-	public void start(String filename){
+	public void start(String filename) {
 		try {
 			metro = MetroMapParser.generateGraphFromFile(filename);
 		} catch (IOException e) {
@@ -51,21 +52,21 @@ public class MetroSystem {
 		}
 		run();
 	}
-	
+
 	/**
 	 * The primary loop of the system, goes through the menu until an exit
 	 * condition is reached.
 	 */
-	private void run(){
-		while(true){
+	private void run() {
+		while (true) {
 			menu();
 			int response = Input.getInteger();
-			switch(response){
+			switch (response) {
 			case 1:
 				findStation();
 				break;
 			case 2:
-				Output.print("Finding route");
+				findRoute();
 				break;
 			case 3:
 				Output.print("Exiting");
@@ -80,11 +81,11 @@ public class MetroSystem {
 			Output.line();
 		}
 	}
-	
+
 	/**
 	 * Displays the main menu of the system.
 	 */
-	private void menu(){
+	private void menu() {
 		Output.print("Welcome to the Bostom Metro System. How may I help you?");
 		Output.print("1. Find station.");
 		Output.print("2. Find route.");
@@ -92,27 +93,47 @@ public class MetroSystem {
 		Output.lineBreak();
 		Output.line();
 	}
-	
+
 	/**
 	 * Searches through the graph's lists of stations to display all stations
 	 * that matches the user's input string.
 	 */
-	private void findStation(){
+	private void findStation() {
 		Output.print("What is the name of the station you're looking for?");
 		String name = Input.getString().replaceAll(" ", "");
 		Output.line();
+
+		listStations(name);
+	}
+	
+	private void findRoute() {
+		Output.print("What is the name of the station you're coming from?");
+		String name = Input.getString().replaceAll(" ", "");
+		Output.line();
+
+		listStations(name);
 		
+		Output.print("What is the name of the station you're going to?");
+		name = Input.getString().replaceAll(" ", "");
+		Output.line();
+
+		listStations(name);
+
+	}
+
+
+	private void listStations(String name) {
 		// Find all stations that match the search parameter.
 		List<INode> stations = new ArrayList<INode>();
-		for(INode station : metro.getNodes()){
-			if(station.getLabel().contains(name))
+		for (INode station : metro.getNodes()) {
+			if (station.getLabel().contains(name))
 				stations.add(station);
 		}
-		
+
 		// Display the results of the search.
-		if(stations.isEmpty()){
+		if (stations.isEmpty()) {
 			Output.print("No results found, please refine your search.");
-		} else{
+		} else {
 			Output.print("\tID\tName");
 			Output.minorLineBreak(40);
 			Output.printList(stations);

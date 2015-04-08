@@ -113,6 +113,11 @@ public class MetroMapParser {
 			// from the grammar, we know that the Station Name is the second
 			// token on the line.
 			stationName = st.nextToken();
+			
+			// Regex to make the station name presentation, currently ugly as
+			// sin.
+			stationName = stationName.replaceAll("(\\p{Ll})(\\p{Lu})","$1 $2");
+			stationName = stationName.replaceAll("[,.!?;:]", "$0 ");
 
 			if (!st.hasMoreTokens()) {
 				fileInput.close();
