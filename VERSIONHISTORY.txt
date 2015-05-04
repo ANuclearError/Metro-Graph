@@ -73,3 +73,14 @@ Finished : -
 			  to find a station with a label containing the user's input.
 		- Model
 			- Implemented a toString() of stations, to allow for nice display.
+			
+	v0.7 - 04/05/2014
+		- Controller
+			- After a long break, reset the controller to try and devise a
+			better way of structuring the logic.
+			- Find Station has been removed, now the program just loops through
+			  Find Route until exit.
+			- Implemented controller logic for finding routes, handling getting
+			  the desired stations.
+		- Model
+			- Added methods for finding stations by label instead of ID.

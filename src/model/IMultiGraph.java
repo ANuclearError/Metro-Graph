@@ -50,4 +50,18 @@ public interface IMultiGraph {
 	 * @return path of edges connection nodes if exists, otherwise null
 	 */
 	public List<IEdge> getPath(INode source, INode dest);
+	
+	/**
+	 * Returns the node with the given ID
+	 * @param id - the ID of the station
+	 * @return the station with the given ID
+	 */
+	public INode getNodeByID(int id);
+	
+	/**
+	 * Returns a list of nodes whose label contains the given string
+	 * @param label - the string to be searched for in each label
+	 * @return nodes with label including string
+	 */
+	public List<INode> getNodesWithLabel(String label);
 }

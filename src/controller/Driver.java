@@ -19,8 +19,6 @@ public class Driver {
 	private static final String AUTHOR = "Created by Aidan O'Grady";
 	
 	public static void main(String[] args) {
-		String derp = "A.B";
-		System.out.println(derp);
 		welcome();
 		MetroSystem system = new MetroSystem();
 		system.start("bostonmetro.txt");

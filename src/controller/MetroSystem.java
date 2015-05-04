@@ -58,85 +58,81 @@ public class MetroSystem {
 	 * condition is reached.
 	 */
 	private void run() {
-		while (true) {
-			menu();
-			int response = Input.getInteger();
-			switch (response) {
-			case 1:
-				findStation();
-				break;
-			case 2:
-				findRoute();
-				break;
-			case 3:
-				Output.print("Exiting");
-				System.exit(0);
-				break;
-			default:
-				Output.print("Invalid response, please re-enter.");
-				break;
-			}
+		menu();
+		
+		boolean run = true;
+		while (run) {
+			findRoute();
 			Output.line();
 			Output.lineBreak();
 			Output.line();
+			
+			Output.print("Do you want to continue? (Y/N)");
+			run = Input.getYesNo();
+			Output.line();
+			Output.lineBreak();
+			Output.line();
+
 		}
+		quit();
 	}
 
 	/**
 	 * Displays the main menu of the system.
 	 */
 	private void menu() {
-		Output.print("Welcome to the Bostom Metro System. How may I help you?");
-		Output.print("1. Find station.");
-		Output.print("2. Find route.");
-		Output.print("3. Exit\n");
+		Output.print("Welcome to the Bostom Metro System?");
+		Output.line();
 		Output.lineBreak();
 		Output.line();
 	}
-
-	/**
-	 * Searches through the graph's lists of stations to display all stations
-	 * that matches the user's input string.
-	 */
-	private void findStation() {
-		Output.print("What is the name of the station you're looking for?");
-		String name = Input.getString().replaceAll(" ", "");
-		Output.line();
-
-		listStations(name);
+	
+	private void quit() {
+		Output.print("Goodbye");
+		System.exit(0);
 	}
+
 	
 	private void findRoute() {
 		Output.print("What is the name of the station you're coming from?");
-		String name = Input.getString().replaceAll(" ", "");
-		Output.line();
+		INode from = getStation();
+		while (from == null) {
+			from = getStation();
+		}
 
-		listStations(name);
-		
 		Output.print("What is the name of the station you're going to?");
-		name = Input.getString().replaceAll(" ", "");
-		Output.line();
-
-		listStations(name);
-
-	}
-
-
-	private void listStations(String name) {
-		// Find all stations that match the search parameter.
-		List<INode> stations = new ArrayList<INode>();
-		for (INode station : metro.getNodes()) {
-			if (station.getLabel().contains(name))
-				stations.add(station);
+		INode to = getStation();
+		while (to == null) {
+			to = getStation();
 		}
 
-		// Display the results of the search.
-		if (stations.isEmpty()) {
-			Output.print("No results found, please refine your search.");
-		} else {
-			Output.print("\tID\tName");
-			Output.minorLineBreak(40);
+		Output.print("Route: " + from.getLabel() + " to " + to.getLabel());
+	}
+	
+	private INode getStation() {
+		String label = Input.getString();
+		List<INode> stations = metro.getNodesWithLabel(label);
+
+		if (stations.size() == 1) {
+			return stations.get(0);
+		}
+		
+		if (stations.size() > 1) {
+			Output.print("Multiple stations with name found. Please enter ID.");
 			Output.printList(stations);
+			Output.line();
+			
+			while (true) {
+				int id = Input.getInteger();
+				
+				for (INode station : stations){
+					if (station.getID() == id)
+						return station;
+				}
+				Output.print("ID does not match above results.");
+			}
 		}
+		return null;
 	}
+	
 }

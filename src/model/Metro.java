@@ -59,4 +59,23 @@ public class Metro implements IMultiGraph{
 	public List<IEdge> getEdges() {
 		return edges;
 	}
+	
+	@Override
+	public INode getNodeByID(int id){
+		for(INode station : nodes){
+			if(station.getID() == id)
+				return station;
+		}
+		return null;
+	}
+
+	@Override
+	public List<INode> getNodesWithLabel(String label) {
+		List<INode> stations = new ArrayList<INode>();
+		for(INode station : nodes){
+			if(station.getLabel().equalsIgnoreCase(label))
+				stations.add(station);
+		}
+		return stations;
+	}
 }
