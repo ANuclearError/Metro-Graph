@@ -1,9 +1,9 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
+import model.IEdge;
 import model.IMultiGraph;
 import model.INode;
 import model.Metro;
@@ -59,7 +59,6 @@ public class MetroSystem {
 	 */
 	private void run() {
 		menu();
-		
 		boolean run = true;
 		while (run) {
 			findRoute();
@@ -99,7 +98,7 @@ public class MetroSystem {
 		while (from == null) {
 			from = getStation();
 		}
-
+		
 		Output.print("What is the name of the station you're going to?");
 		INode to = getStation();
 		while (to == null) {
@@ -107,8 +106,16 @@ public class MetroSystem {
 		}
 
 		Output.print("Route: " + from.getLabel() + " to " + to.getLabel());
+		List<IEdge> path = metro.getPath(from, to);
+		Output.printList(path);
 	}
 	
+	/**
+	 * Returns a station based on the user's input, if such a station does not
+	 * exist, it will return null.
+	 * 
+	 * @return station
+	 */
 	private INode getStation() {
 		String label = Input.getString();
 		List<INode> stations = metro.getNodesWithLabel(label);
@@ -134,5 +141,4 @@ public class MetroSystem {
 		}
 		return null;
 	}
-	
 }

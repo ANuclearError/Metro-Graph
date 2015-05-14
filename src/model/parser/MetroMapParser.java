@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 import model.IMultiGraph;
+import model.INode;
 import model.Line;
 import model.Metro;
 import model.Station;
@@ -124,7 +125,8 @@ public class MetroMapParser {
 				throw new BadFileException("Station has no line");
 			}
 			
-			graph.addNode(new Station(stationID, stationName));
+			INode station = new Station(stationID, stationName);
+			graph.addNode(station);
 						
 			while (st.hasMoreTokens()) {
 				lineName = st.nextToken();
@@ -136,6 +138,12 @@ public class MetroMapParser {
 
 				outboundID = Integer.parseInt(st.nextToken());
 
+				INode from = graph.getNodeByID(outboundID);				
+				if (from != null) {
+					graph.addEdge(new Line(lineName, from, station));
+					graph.addEdge(new Line(lineName, station, from));
+				}
+
 				if (!st.hasMoreTokens()) {
 					fileInput.close();
 					throw new BadFileException(
@@ -144,7 +152,11 @@ public class MetroMapParser {
 
 				inboundID = Integer.parseInt(st.nextToken());
 				
-				graph.addEdge(new Line(lineName, outboundID, inboundID));
+				INode to = graph.getNodeByID(inboundID);
+				if (to != null) {
+					graph.addEdge(new Line(lineName, station, to));
+					graph.addEdge(new Line(lineName, to, station));
+				}
 			}
 			line = fileInput.readLine();
 		}

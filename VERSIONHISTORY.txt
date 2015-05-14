@@ -84,3 +84,15 @@ Finished : -
 			  the desired stations.
 		- Model
 			- Added methods for finding stations by label instead of ID.
+			
+	v0.8 - 14/05/2015
+		- Controller
+			- Added proper searching to the system, which now displays a
+			  user unfriendly way of showing a route between stations.
+		- Model
+			- Implemented a breadth first search of the graph to return a list
+			  of edges that constitute a path between nodes. This required
+			  various helper methods such as extendPath() and getLinesFrom() in
+			  order to correctly create the paths needed.
+			- Edited the toString() method of Stations so the ID is not
+			  displayed.

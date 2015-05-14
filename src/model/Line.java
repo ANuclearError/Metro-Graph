@@ -18,20 +18,20 @@ public class Line implements IEdge{
 	/**
 	 * The node this line comes from.
 	 */
-	private int from;
+	private INode from;
 	
 	/**
 	 * The node this line goes towards.
 	 */
-	private int to;
+	private INode to;
 	
 	/**
 	 * Constructor
 	 * @param label - the label of this edge
-	 * @param from - the ID of the from node
-	 * @param to - the ID of the to node
+	 * @param from - the from node
+	 * @param to - the to node
 	 */
-	public Line(String label, int from, int to){
+	public Line(String label, INode from, INode to){
 		this.label = label;
 		this.from = from;
 		this.to = to;
@@ -43,12 +43,17 @@ public class Line implements IEdge{
 	}
 
 	@Override
-	public int getFromNode() {
+	public INode getFromNode() {
 		return from;
 	}
 
 	@Override
-	public int getToNode() {
+	public INode getToNode() {
 		return to;
+	}
+	
+	@Override
+	public String toString() {
+		return from + " to " + to + " on " + label + "line";
 	}
 }
