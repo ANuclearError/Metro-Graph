@@ -54,6 +54,6 @@ public class Line implements IEdge{
 	
 	@Override
 	public String toString() {
-		return from + " to " + to + " on " + label + "line";
+		return from + " to " + to + " on " + label + " line";
 	}
 }

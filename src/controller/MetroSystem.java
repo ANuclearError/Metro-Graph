@@ -1,11 +1,13 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import model.IEdge;
 import model.IMultiGraph;
 import model.INode;
+import model.Line;
 import model.Metro;
 import model.parser.BadFileException;
 import model.parser.MetroMapParser;
@@ -107,7 +109,7 @@ public class MetroSystem {
 
 		Output.print("Route: " + from.getLabel() + " to " + to.getLabel());
 		List<IEdge> path = metro.getPath(from, to);
-		Output.printList(path);
+		Output.printList(trimPath(path));
 	}
 	
 	/**
@@ -140,5 +142,39 @@ public class MetroSystem {
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * Returns a more human readable version of the graph's generated path.
+	 * This is done by combining elements of the path that share the same label,
+	 * thus presenting a more realistic path to the user's eyes.
+	 * @param path
+	 * @return
+	 */
+	private List<IEdge> trimPath(List<IEdge> path) {
+		List<IEdge> trimmed = new ArrayList<IEdge>();
+		
+		// Get the starting point of this new path
+		IEdge edge = path.get(0);
+		INode start = edge.getFromNode();
+		String label = edge.getLabel();
+		
+		for (int i = 1; i < path.size(); i++) {
+			edge = path.get(i);
+			
+			// If there's a change in label, then we must update the trimmed
+			// path.
+			if (!edge.getLabel().equals(label)) {
+				trimmed.add(new Line(label, start, edge.getFromNode()));
+				label = edge.getLabel();
+				start = edge.getFromNode();
+			}
+		}
+		
+		// Finishing off the list
+		edge = path.get(path.size() - 1);
+		trimmed.add(new Line(edge.getLabel(), start, edge.getToNode()));
+		
+		return trimmed;
 	}
 }

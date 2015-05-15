@@ -96,3 +96,10 @@ Finished : -
 			  order to correctly create the paths needed.
 			- Edited the toString() method of Stations so the ID is not
 			  displayed.
+			  
+	V1.0 - 15/05/2015
+		- Controller
+			- Added a method that now displays the route in a way that makes
+			  sense in the given context of a metro map. The path will combine
+			  elements that share the same label, since they are on the same
+			  line.

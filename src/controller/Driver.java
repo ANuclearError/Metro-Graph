@@ -14,7 +14,7 @@ import view.Output;
 public class Driver {
 
 	private static final String TITLE = "Metro Graph";
-	private static final String VERSION = "0.0";
+	private static final String VERSION = "1.0";
 	private static final String PROJECT_MESSAGE = TITLE + " v" + VERSION;
 	private static final String AUTHOR = "Created by Aidan O'Grady";
 	
